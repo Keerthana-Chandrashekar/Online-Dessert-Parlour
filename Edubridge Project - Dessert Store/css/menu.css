@@ -1,0 +1,264 @@
+body {
+    box-shadow: 1px 1px 10px grey;
+    border-radius: 15px 15px 0 0;
+}
+div.sticky {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    height: 50px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    border-radius: 15px 15px 0 0;
+    justify-content: center;
+    background-image: url("../Images/navBg.jpg");
+    font-family: Lato,sans-serif;
+    font-size: 14px;
+    z-index: 100;
+}
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.flavourArea {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.menuCard {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: 25px 15px
+}
+.imgCard {
+    height: 200px;
+    width: 200px;;
+}
+.coneImg {
+    height: inherit;
+    width: inherit;
+    border-radius: 50%;
+    object-fit: cover
+}
+
+.coneImg:hover
+{
+    box-shadow: 1px 1px 10px grey;
+}
+.textCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.textCard h1{
+    font-family: Lato,sans-serif;
+    font-size: 14px;
+    font-weight: normal;
+    margin: 10px 0;
+}
+.textCard h2{
+    font-family: Lato,sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    margin: 0;
+}
+.goBack {
+    height: 50px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: Lato,sans-serif;
+    font-size: 14px;
+    margin-bottom: 30px;
+    background-image: url("../Images/navBg.jpg");
+}
+.btns {
+    display: flex;
+}
+.toggleBtn {
+    height: 25px;
+    width: 60px;
+    border-radius: 10px;
+    border: 1px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-right: 10px;
+    cursor: pointer;
+}
+.toggleBtn:hover {
+    background-color: black;
+    color: white;
+}
+.roundBtn {
+    height: 25px;
+    width: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 1px solid black;
+    margin-right: 10px;
+    cursor: pointer;
+    color: black;
+}
+.roundBtn:hover {
+    background-color: black;
+    color: white;
+}
+.roundBtn i {
+    color: black;
+}
+.roundBtn i:hover {
+    color: white;
+}
+.bestSeller {
+    height: 90px;
+    width: 90px;
+    position: absolute;
+    margin-top: -200px;
+    margin-right: 120px;
+}
+.bestSeller img {
+    height: inherit;
+    width: inherit;
+    object-fit: cover;
+    border-radius: 50%;
+}
+.bestSellerList {
+    height: 90px;
+    width: 90px;
+    position: absolute;
+    margin-top: -120px;
+    margin-left: -40px;
+}
+.bestSellerList img {
+    height: inherit;
+    width: inherit;
+    object-fit: cover;
+    border-radius: 50%;
+}
+.listflavourArea {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.listFlavourMenu {
+    height: 100px;
+    width: 90%;
+    padding: 15px;
+    box-shadow: 1px 1px 3px grey;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    border-radius: 15px;
+    margin-bottom: 25px;
+}
+.listFlavourMenu:hover {
+    cursor: pointer;
+    box-shadow: 1px 1px 10px grey;
+}
+.listImg {
+    height: 110px;
+    width: 110px;
+}
+.listImg img {
+    height: inherit;
+    width: inherit;
+    border-radius: 10px;
+}
+.listName {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 15px;
+}
+.listName h1{
+    font-family: Lato,sans-serif;
+    font-size: 24px;
+    font-weight: normal;
+    margin: 5px 0;
+}
+.listName h2{
+    font-family: Lato,sans-serif;
+    font-size: 22px;
+    font-weight: 500;
+    margin: 0;
+}
+.listName h3{
+    font-family: Lato,sans-serif;
+    font-size: 12px;
+    font-weight: normal;
+    margin: 10px 0;
+    font-style: italic;
+}
+.listName h4{
+    font-family: Lato,sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    margin: 0;
+    font-style: italic;
+}
+.listDesc {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: center;
+}
+.listCupCost {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.button {
+    font-family: Lato,sans-serif;
+    height: 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    margin-left: 20px;
+}
+.button3 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: white; 
+    color: #f44336; 
+    border: 2px solid #f44336;
+    border-radius: 5px;
+}
+
+.button3:hover {
+    background-color: #f44336;
+    color: white;
+}
+.icon {
+    color: #f44336;
+    padding-left: 3px;
+}
+.icon:hover {
+    color: white;
+}
+.logo {
+    font-size: 22px;
+    font-family: cursive;
+    letter-spacing: 1.3;
+    margin: 0 25px;
+}

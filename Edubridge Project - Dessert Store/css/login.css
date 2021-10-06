@@ -1,0 +1,102 @@
+    body {
+        background-image: url("../Images/loginBg.jpg");
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+       
+    }
+    input[type=text],input[type=password] {
+        height: 30px;
+        width: 300px;
+        border-radius: 3px;
+        border: 1px solid #ccc;
+        background-color: transparent;
+        margin-top: 10px;
+        color: white;
+        padding: 0 10px;
+        box-shadow: 1px 1px 5px black;
+    }
+    input[type=text]::placeholder, input[type=password]::placeholder {
+        color: white;
+    }
+    input[type=password]:focus {
+        border: none; 
+        box-shadow: 1px 1px 5px black;
+        background-color: transparent;
+        color: white;
+    }
+    input[type=text]:focus {
+        border: none; 
+        box-shadow: 1px 1px 5px black;
+        background-color: transparent;
+        color: white;
+    }
+    .mainContainer {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 1px 1px 5px black;
+        background: rgb(0, 0, 0);
+        background: rgba(0, 0, 0, 0.6);
+        
+    }
+    .mainContainer h1 {
+        font-size: 28px;
+        font-weight: normal;
+        color: white;
+        font-family: monospace;
+        margin: 0 0 10px 0;
+    }
+    .mainContainer h2 {
+        font-size: 14px;
+        font-weight: normal;
+        color: white;
+        font-family: monospace;
+        margin: 0;
+    }
+    .formCard {
+        padding: 25px;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid white;
+    }
+    .formCard a {
+        color: white;
+    }
+    .logBtn {
+        height: 30px;
+        width: 300px;
+        border-radius: 3px;
+        margin-top: 10px;
+        background-color: #f51d6c;
+        border: none;
+        color: white;
+        letter-spacing: 2;
+        cursor: pointer;
+        box-shadow: 1px 1px 5px black;
+    }
+    .logBtn:hover {
+        box-shadow: 1px 1px 15px black;
+    }
+    .iconLogo {
+        margin: 20px 0;
+        display: flex;
+    }
+    .iconLogo img {
+        height: 30px;
+        width: 30px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-left: 10px;
+        cursor: pointer;
+    }
+    .iconLogo img:hover {
+        box-shadow: 1px 1px 15px black;
+    }

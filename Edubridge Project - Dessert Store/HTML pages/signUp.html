@@ -1,0 +1,47 @@
+<html>
+    <head>
+        <title>Sign-up Portal</title>
+        <link rel="stylesheet" href="../css/login.css">
+    </head>
+<body>
+    <div class="mainContainer">
+        <div class="formCard">
+        <h1>Sign Up and create new account</h1>
+        <h2>Dont miss the delicious offers !! Quickly sign in.....</h2>
+        <div class="inputField">
+            <input type="text" id="uname" placeholder="Enter Username" name="uname" required>
+        </div>
+        <div class="inputField">
+            <input type="password" id="upass" placeholder="Enter password" name="upass" required>
+        </div>
+        <div class="inputField">
+            <input type="password" id="cpass" placeholder="Confirm password" name="cpass" required>
+        </div>
+        <button type="submit" onclick="signup()" class="logBtn" style="background-color: orangered;">Sign Up</button>
+        <div class="iconLogo">
+            <a href="https://www.facebook.com/login/">
+                <img src="../Images/fbLogo.png"/>
+            </a>
+            <a href="https://www.instagram.com/accounts/login/">
+                <img src="../Images/insta.jpg" />
+            </a>
+            <a href="https://in.pinterest.com/">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Pinterest-logo.png" />
+            </a>
+        </div>
+        </div>
+    </div>
+</body>
+<script>
+    function signup() {
+        var user = document.getElementById('uname').value;
+        var password = document.getElementById('upass').value;
+        var cpassword = document.getElementById('cpass').value;
+        if(password == cpassword) {
+            location.replace("login.html");
+        }
+        else
+        alert("Please enter correct password !");
+    }
+    </script>
+</html>

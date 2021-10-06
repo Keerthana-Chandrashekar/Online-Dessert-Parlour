@@ -1,0 +1,299 @@
+<html>
+  <head>
+    <title>Magonlia Desserts - Home</title>
+</head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+<style>
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    box-shadow: 1px 1px 10px grey;
+    background-color: transparent;
+    border-radius: 15px;
+    
+  }  
+  .pageTop {
+    width: 100%;
+    height: 20px;
+    opacity: 0.6;
+    border-radius: 15px 15px 0 0;
+    background-image: url("https://i.pinimg.com/originals/af/56/3c/af563c216814897745562601e53e963d.jpg");
+  }
+  .bgImg {
+    width: 100%;
+    height: 350px;  
+    border-radius: 15px 15px 0 0;  
+    background-image: url("https://thumbs.dreamstime.com/b/white-vertical-wooden-wall-texture-background-top-down-table-pattern-soft-wood-surface-as-backgro-copy-space-205580687.jpg");
+    
+  }
+  .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+.topnav {
+  height: 52px;
+  display: flex;
+  align-items: center;
+ justify-content: center;
+ cursor: pointer;
+}
+.topnav span {
+  font-size: 22px;
+  font-family: cursive;
+  letter-spacing: 1.3;
+  margin: 0 25px;
+}
+
+.topnav button {
+  float: left;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 18px;
+  font-family: monospace;
+  min-width: 100px;
+  letter-spacing: 1.3;
+  border: none;
+  background-color: transparent;
+}
+.dropdownContent {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  overflow: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  flex-direction: column;
+  margin-top: 230px;
+  margin-left: 500px;
+}
+.dropdownContent a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  border-bottom: none;
+}
+
+.dropdownContent a:hover {
+  background-color: #ddd;
+  border-bottom: none;
+}
+
+.topnav button:hover {
+  border-bottom: 3px solid black;
+  color: black;
+  font-size: 18px;
+  font-family: monospace;
+  min-width: 100px;
+}
+
+.topnav a {
+  float: left;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 18px;
+  font-family: monospace;
+  min-width: 100px;
+  letter-spacing: 1.3;
+
+}
+
+.topnav a:hover {
+  border-bottom: 3px solid black;
+  color: black;
+  font-size: 18px;
+  font-family: monospace;
+  min-width: 100px;
+}
+
+.topnav a.active {
+  color: black;
+  font-family: emoji;
+  font-size: 15px;
+}
+.navImg {
+    height: 180px;
+    margin: 0 15px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.navImg img {
+  height: inherit;
+    object-fit: contain;
+}
+.gallery {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: -160px;
+}
+.galCard {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  height: 200px;
+  width: 200px;
+  padding: 5px;
+  margin: 0 15px;
+  box-shadow: 1px 1px 5px grey;
+}
+.galCard img {
+  height: inherit;
+  width: inherit;
+  object-fit: cover;
+}
+.menuArea {
+  height: 500px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.menuArea h1 {
+  font-size: 14px;
+  font-weight: normal;
+  font-family: monospace;
+}
+.menuArea h2 {
+  font-size: 20px;
+  font-weight: normal;
+  font-family: monospace;
+}
+.cardArea {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.menuCard {
+  height: 230px;
+  width: 200px;
+  margin: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  cursor: pointer;
+}
+.menuCard img:hover {
+  box-shadow: 1px 1px 15px grey;
+}
+.menuCard img {
+  height: inherit;
+  width: inherit;
+  object-fit: cover;
+  box-shadow: 1px 1px 5px grey;
+}
+.menuBtn {
+  height: 30px;
+  width: 180px;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: -15px;
+  box-shadow: 1px 1px 5px grey;
+  font-size: 12px;
+  cursor: pointer;
+}
+.menuBtn a{
+  text-decoration: none;
+  color: black;
+}
+.menuBtn:hover {
+  box-shadow: 1px 1px 15px grey;
+}
+  
+
+</style>
+
+<body>
+  <!-- Navigation bar-->
+  <div class="bgImg">
+    <div class="topnav">
+      <a style="border-bottom: 3px solid black;">Home</a>
+      <a href="ourStory.html">Our Story</a>
+      <span>MAGNOLIA DESSERTS</span>
+      <button onclick="openMenu()" class="dropbtn">Menu</button>
+      <div id="myDropdown" class="dropdownContent">
+        <a href="coneMenu.html">Cone Icecreams</a>
+        <a href="cupMenu.html">Cup Icecreams</a>
+        <a href="macarons.html">French Macarons</a>
+      </div>
+      <!--<a href="#about">My Cart</a> -->
+    </div>
+</div>
+  <div class="gallery">
+    <div class="galCard">
+      <img src="../Images/home1.jpg" />
+    </div>
+    <div class="galCard">
+      <img src="../Images/home2.jpg" />
+    </div>
+    <div class="galCard">
+      <img src="../Images/home3.jpg" />
+    </div>
+  </div>
+
+  <!--Menu cards-->
+  <div class="menuArea">
+    <h1>WHAT'S GOOD HERE</h1>
+    <h2>Browse the Categories</h2>
+    <div class="cardArea">
+
+      <!--Cone flavours-->
+      <div class="menuCard">
+        <img src="../Images/coneMenu.jpg" />
+        <div class="menuBtn">
+          <a href="coneMenu.html">Cone Flavours</a>
+        </div>
+      </div>
+
+      <!--Cup flavours-->
+      <div class="menuCard">
+        <img src="../Images/cupMenu.jpg" />
+        <div class="menuBtn">
+          <a href="cupMenu.html">Cup Flavours</a>
+        </div>
+      </div>
+
+      <!--Cup flavours-->
+      <div class="menuCard">
+        <img src="../Images/macMenu.jpg" />
+        <div class="menuBtn">
+          <a href="macarons.html">French Macarons</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+<script>
+  function openMenu() {
+    document.getElementById("myDropdown").style.display = "flex";
+  }
+
+  window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+    var dropdowns = document.getElementsByClassName("dropdownContent");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (document.getElementById("myDropdown").style.display = "flex") {
+        document.getElementById("myDropdown").style.display = "none"
+      }
+    }
+  }
+}
+
+</script>
+</html>

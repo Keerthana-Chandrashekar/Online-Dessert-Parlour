@@ -1,0 +1,197 @@
+<html>
+    <head>
+        <title>Magonlia Desserts - Cone Menu</title>
+        <link rel="stylesheet" href="../css/menu.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    </head>
+
+    <body ng-app="myApp" ng-controller="myCtrl">
+        <div class="content">
+
+            <div class="sticky">Free delivery for orders $30 and above! Same day delivery available for all orders made before 4pm.</div>
+
+            <div class="goBack">
+                <div style="padding-left: 15px;">
+                    <div class="roundBtn">
+                        <a href="home.html" style="text-decoration: none;">
+                        <i ng-href="home.html" style="font-size: 20px; cursor: pointer;" class="fa fa-home" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="logo">MAGNOLIA DESSERTS</div>
+                <div class="btns">
+                    <div class="toggleBtn">
+                        <i ng-Click="gridView = true" ng-style="{ 'opacity' : (gridView) ? '' : '0.5' }" ng-model="gridView" ng-init="gridView = true" class="fa fa-th-large"></i>
+                        <i ng-Click="gridView = false" ng-style="{ 'opacity' : (!gridView) ? '' : '0.5' }" class="fa fa-th-list"></i>
+                    </div>
+                    <div ng-click="sortBy('name')" class="roundBtn">
+                        <i class="fa fa-sort-alpha-asc" aria-hidden="true"></i>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- GRID VIEW-->
+            <div ng-if="gridView" class="flavourArea">
+            <div ng-repeat="x in flavors | orderBy:mySort" class="menuCard">
+                <div ng-if="x.best" class="bestSeller">
+                    <img src="../Images/bestSeller.png"/>
+                </div>
+                <div class="imgCard">
+                    <img class="coneImg" src="{{x.img}}"/>
+                </div>
+                <div class="textCard">
+                    <h1>{{x.name}}</h1>
+                    <h2>{{x.price}}</h2>
+                    
+                </div>
+            </div>
+            </div>
+
+            <!-- LIST VIEW -->
+            <div ng-if="!gridView" class="listflavourArea">
+                <div ng-repeat="x in flavors | orderBy:mySort" class="listFlavourMenu">
+                    <div ng-if="x.best" class="bestSellerList">
+                        <img src="../Images/bestSeller.png"/>
+                    </div>
+                    <div class="listImg">
+                        <img src="{{x.img}}"/>
+                    </div>
+                    <div class="listName">
+                        <h1>{{x.name}}</h1>
+                        <div class="listDesc">
+                            <h3>{{x.desc2}}</h3>
+                            <h4>{{x.desc}}</h4>
+                        </div>
+                    </div>
+                    <div class="listCupCost">
+                        <h2>{{x.price}}</h2>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </body>
+
+    <script>
+        var app = angular.module("myApp", []);
+        app.controller("myCtrl", function($scope) {
+        $scope.flavors = [
+        {
+            "name" : "Black Current",
+            "price" : "$3",
+            "img" : "../Images/cone1.jpg",
+            "best" : true,
+            "desc" : "Ingredients: Coconut Milk, Cashew Milk, Vanilla, Butterfly Pea Flower, Matcha Cake (made with Almond Milk), Raw Cane Sugar",
+            "desc2" : "Looks like our beautiful planet when scooped. Our classic coconut cashew vanilla base is naturally coloured blue with butterfly pea flowers, then we fold in fluffy chunks of matcha cake."
+        },
+        {
+            "name" : "Baklava",
+            "price" : "$9",
+            "img" : "../Images/cone2.jpg",
+            "desc" : "Ingredients: Coconut Milk, Cashew Milk, Maple, Home-made Baklava (Filo Pastry, Walnuts, Pistachios, Lemon & Orange Zest), Raw Cane Sugar",
+            "desc2" : "Our homemade Baklava is packed with buttery, flaky filo pastry, walnuts, nutmeg, and pistachios crushed into our classic cashew-coconut milk base with cinnamon and maple swirl "
+        },
+        {
+            "name" : "Black Forest",
+            "price" : "$6",
+            "img" : "../Images/cone3.png",
+            "best" : true,
+            "desc" : "Ingredients: Coconut Milk, Cashew Milk, Almond Milk, Vanilla, Brownie Chunks, Cherry Compote, Raw Cane Sugar",
+            "desc2" : "Imagine the popular German cake in the form of ice cream. Rich vegan chocolate brownies and homemade cherry compote are swirled into our classic coconut cashew milk base."
+        },
+        {
+            "name" : "Hazelnut Crunch",
+            "price" : "$8",
+            "img" : "../Images/cone4.jpg",
+            "desc" : "Ingredients: Coconut Milk, Oat Milk, Hazelnuts, Raw Cane Sugar, Dark Chocolate Pearls",
+            "desc2" : "Indulge in our hazelnut ice cream sprinkled with dark chocolate pearl crunch. Creamy, plant-based goodness that will leave you wanting more."
+        },
+        {
+            "name" : "Keto Avocado Coconut",
+            "price" : "$8",
+            "img" : "../Images/cone5.jpg",
+            "desc" : "Ingredients:  Coconut Milk, Avocado, Lemon Juice, Xylitol.",
+            "desc2" : "We have a newcomer to our Keto club! – Our Keto Avocado Coconut could be the key to your heart! Loaded with fresh avocados churned together with coconut milk and sweetened with xylitol "
+        },
+        {
+            "name" : "Keto Chocolate Sorbet",
+            "price" : "$9",
+            "img" : "../Images/cone6.png",
+            "desc" : "Ingredients: Cocoa Mass, Cocoa Powder, Xylitol.",
+            "desc2" : "Our classic chocolate sorbet made with sugar substitute, xylitol**, instead of raw cane sugar. Diabetic and keto-friendly."
+        },
+        {
+            "name" : "Madagascan Vanilla Bean",
+            "price" : "$2",
+            "img" : "../Images/cone7.jpg",
+            "desc" : "Ingredients: Coconut Milk, Cashew Milk, Madagascan Vanilla Bean, Raw Cane Sugar",
+            "desc2" : "A decadent and creamy caffeine treat for our coffee lovers! Our delicious cashew-coconut milk base is packed with the perfect hint of espresso and swirled with ribbons of rich chocolate ganache to give you the ultimate coffee experience. "
+        },
+        {
+            "name" : "Peanut Buttercup",
+            "price" : "$10",
+            "img" : "../Images/cone8.jpg",
+            "best" : true,
+            "desc" : "Ingredients:  Coconut Milk, Cashew Milk, Vanilla, Homemade Peanut Butter Cup, Corn Flour, Raw Cane Sugar",
+            "desc2" : "We home make our own version of this popular chocolate candy, crush it, then generously fold it into our classic coconut cashew base and add in some extra roasted peanut chunks."
+        },
+        {
+            "name" : "Pulut Hitam",
+            "price" : "$11",
+            "img" : "../Images/cone9.jpg",
+            "best" : true,
+            "desc" : "Ingredients: Black Glutinous Rice, Coconut Milk, Pandan, Gula Melaka",
+            "desc2" : "A local favourite as voted by you! Indulge in this coconut ice cream with hints of gula melaka and black glutinous rice."
+        },
+        {
+            "name" : "Choco Vanilla",
+            "price" : "$8",
+            "img" : "../Images/cone10.jpg",
+            "desc" : "Ingredients: Coconut Milk, Belgian chocolate, vanilla, Raw Cane Sugar",
+            "desc2" : "Can't go wrong with classic flavours. Bursting with Belgian chocolate toppings and the ever classic vanilla."
+        },
+        {
+            "name" : "Passion Fruit Sorbet",
+            "price" : "$10",
+            "img" : "../Images/cone11.jpg",
+            "best" : true,
+            "desc" : "Ingredients: Passionfruit, Lemon, Raw Cane Sugar",
+            "desc2" : ""
+        },
+        {
+            "name" : "Crunchy Caramel",
+            "price" : "$4",
+            "img" : "../Images/cone12.jpg",
+            "desc" : "Ingredients: Cocoa Powder, Cocoa Mass, Raw Cane Sugar",
+            "desc2" : "Crunchy caramel... literally. Rich and creamy without any plant milk topped with super crunchy caramel chunks."
+        },
+        {
+            "name" : "Mighty Oreo",
+            "price" : "$8",
+            "img" : "../Images/cone13.jpg",
+            "desc" : "Ingredients: Coconut Milk, Cashew Milk, oreo chunks, Raw Cane Sugar",
+            "desc2" : "Experience all of the flavour of our classic vanilla, but with a fun twist. Scoop up vanilla ice cream with the added oreo chunks."
+        },
+        {
+            "name" : "Honey Comb Drops",
+            "price" : "$9",
+            "img" : "../Images/cone14.jpg",
+            "desc" : "Ingredients: Coconut Milk, Cashew Milk, honey chunks, Raw Cane Sugar",
+            "desc2" : "Honey Dew Drops... literally. Rich and creamy without any plant milk topped with super crunchy honey comb chunks."
+        },
+        {
+            "name" : "Baklava",
+            "price" : "$9",
+            "img" : "../Images/cone15.jpg",
+            "desc" : "Ingredients: Coconut Milk, Cashew Milk, Maple, Home-made Baklava (Filo Pastry, Walnuts, Pistachios, Lemon & Orange Zest), Raw Cane Sugar",
+            "desc2" : "Our homemade Baklava is packed with buttery, flaky filo pastry, walnuts, nutmeg, and pistachios crushed into our classic cashew-coconut milk base with cinnamon and maple swirl "
+        }
+        ];
+        $scope.sortBy = function(x) {
+            $scope.mySort = x;
+        }
+         });
+    </script>
+
+</html>

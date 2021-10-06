@@ -1,0 +1,188 @@
+<html>
+    <head>
+        <title>Magonlia Desserts - cup Menu</title>
+        <link rel="stylesheet" href="../css/menu.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    </head>
+
+    <body ng-app="myApp" ng-controller="myCtrl">
+        <div class="content">
+
+            <div class="sticky">Free delivery for orders $30 and above! Same day delivery available for all orders made before 4pm.</div>
+
+            <div class="goBack">
+                <div style="padding-left: 15px;">
+                    <div class="roundBtn">
+                        <a href="home.html" style="text-decoration: none;">
+                        <i ng-href="home.html" style="font-size: 20px; cursor: pointer;" class="fa fa-home" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="logo">MAGNOLIA DESSERTS</div>
+                <div class="btns">
+                    <div class="toggleBtn">
+                        <i ng-Click="gridView = true" ng-style="{ 'opacity' : (gridView) ? '' : '0.5' }" ng-model="gridView" ng-init="gridView = true" class="fa fa-th-large"></i>
+                        <i ng-Click="gridView = false" ng-style="{ 'opacity' : (!gridView) ? '' : '0.5' }" class="fa fa-th-list"></i>
+                    </div>
+                    <div ng-click="sortBy('name')" class="roundBtn">
+                        <i class="fa fa-sort-alpha-asc" aria-hidden="true"></i>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- GRID VIEW-->
+            <div ng-if="gridView" class="flavourArea">
+            <div ng-repeat="x in flavors | orderBy:mySort" class="menuCard">
+                <div ng-if="x.best" class="bestSeller">
+                    <img src="../Images/bestSeller.png"/>
+                </div>
+                <div class="imgCard">
+                    <img class="coneImg" src="{{x.img}}"/>
+                </div>
+                <div class="textCard">
+                    <h1>{{x.name}}</h1>
+                    <h2>{{x.price}}</h2>
+                </div>
+            </div>
+            </div>
+
+            <!-- LIST VIEW -->
+            <div ng-if="!gridView" class="listflavourArea">
+                <div ng-repeat="x in flavors | orderBy:mySort" class="listFlavourMenu">
+                    <div ng-if="x.best" class="bestSellerList">
+                        <img src="../Images/bestSeller.png"/>
+                    </div>
+                    <div class="listImg">
+                        <img src="{{x.img}}"/>
+                    </div>
+                    <div class="listName">
+                        <h1>{{x.name}}</h1>
+                        <div class="listDesc">
+                            <h3>{{x.desc2}}</h3>
+                            <h4>{{x.desc}}</h4>
+                        </div>
+                    </div>
+                    <div class="listCupCost">
+                        <h2>{{x.price}}</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+
+    <script>
+        var app = angular.module("myApp", []);
+        app.controller("myCtrl", function($scope) {
+        $scope.flavors = [
+        {
+            "name" : "Almond Brittle Fudge",
+            "price" : "$3",
+            "img" : "../Images/cup1.jpg",
+            "best" : true,
+            "desc" : "Ingredients: Coconut Milk, Cashew Milk, Vanilla, Sea Salt, Almonds, Cacao Nibs, Chia Seeds, Dairy-free Chocolate Chips, Raw Cane Sugar",
+            "desc2" : "This flavour is full of crunchy brittle candy pieces that are made from crushed almonds, cacao nibs, dairy-free chocolate, and chia seeds. We are a proponent of integrating more whole foods into our overall diet and these good-for-you ingredients are so you can satisfy your sweet tooth on a positive note!"
+        },
+        {
+            "name" : "Salted Chocolate Chips",
+            "price" : "$5",
+            "img" : "../Images/cup2.jpg",
+            "desc" : "Ingredients: Coconut Milk, Cashew Milk, Cocoa Powder, Vanilla, Dairy-free Chocolate Chips, Raw Cane Sugar",
+            "desc2" : "This flavour was created by accident. In our early days, our chef was prepping a batch of Dark Chocolate and accidentally added more salt. But this mistake turned into a win because they tried it and were surprised at how good it tasted!"
+        },
+        {
+            "name" : "Tiramisu",
+            "price" : "$6",
+            "img" : "../Images/cup3.png",
+            "best" : true,
+            "desc" : "Ingredients: Cashews, Coconut Milk, Oat Milk, Espresso, Vanilla, Cacao Powder, Gluten-Free Lady Finger Biscuits, Unrefined Raw Cane Sugar",
+            "desc2" : "Our version, vegan and non-alcoholic, is inspired by one of Italy's most popular desserts. With a hint of espresso and filled with chunks of delicious gluten free lady finger biscuits ;)"
+        },
+        {
+            "name" : "Durian",
+            "price" : "$8",
+            "img" : "../Images/cup4.jpg",
+            "desc" : "Ingredients: Coconut Milk, Cashew Milk, Durian, Raw Cane Sugar",
+            "desc2" : "Known for its strong odour, the king of fruits is fragrant and pleasant for some, while incredibly offensive to others. We blend the creamy flesh into our classic coconut milk base to create this unique flavour."
+        },
+        {
+            "name" : "Cookies & Cream",
+            "price" : "$8",
+            "img" : "../Images/cup5.png",
+            "desc" : "Ingredients: Cashew Milk, Coconut Milk, Vanilla, Cocoa Powder, Activated Charcoal, Raw Cane Sugar",
+            "desc2" : "One of our most highly requested flavours is finally here! Enjoy this classic flavour with a plant-based twist. Made with a cashew, coconut milk base and charcoal cocoa cookie bits swirled into a delectable treat for your taste buds."
+        },
+        {
+            "name" : "Cookies Dough",
+            "price" : "$9",
+            "img" : "../Images/cup6.jpg",
+            "desc" : "Ingredients: Coconut Milk, Cashew Milk, Vanilla, Oats, Almond Butter, Choc Chips, Maple Syrup, Raw Cane Sugar",
+            "desc2" : "With delicious chunks of buttery cookie dough (made with almond butter), hints of vanilla peeking through and generous sprinkles of chocolate chips churned together with a coconut cashew milk base"
+        },
+        {
+            "name" : "Coffee Chocolate Fudge",
+            "price" : "$2",
+            "img" : "../Images/cup7.png",
+            "desc" : "Ingredients: Coconut Milk, Cashew Milk, Chocolate Ganache, Espresso.",
+            "desc2" : "A decadent and creamy caffeine treat for our coffee lovers! Our delicious cashew-coconut milk base is packed with the perfect hint of espresso and swirled with ribbons of rich chocolate ganache to give you the ultimate coffee experience. "
+        },
+        {
+            "name" : "Watermelon & Strawberry",
+            "price" : "$10",
+            "img" : "../Images/cup8.jpg",
+            "best" : true,
+            "desc" : "Ingredients: Watermelon, Strawberries, Lemon, Raw Cane Sugar",
+            "desc2" : "A fruity combination of fresh watermelon and strawberries paired with a touch of fresh mint for an herbal flair and a hint of lemon for a touch of acidity. Recommended for those hot days when you're seeking something light and refreshing."
+        },
+        {
+            "name" : "Rose Lychee",
+            "price" : "$11",
+            "img" : "../Images/cup9.png",
+            "best" : true,
+            "desc" : "Ingredients: Lychee, Raspberry, Rose Water, Lemon, Raw Cane Sugar",
+            "desc2" : "A refreshing option to cool you off on hot days. This sorbet comes with lychee bits and a dash of rose water and lemon to brighten the flavour profile."
+        },
+        {
+            "name" : "Strawberry Delight",
+            "price" : "$8",
+            "img" : "../Images/cup10.jpg",
+            "desc" : "Ingredients: Coconut Milk, Belgian Strawberries, Banana, Raw Cane Sugar",
+            "desc2" : "Can't go wrong with classic flavours. Bursting with Belgian strawberries and bananas blended into our coconut almond milk base."
+        },
+        {
+            "name" : "Passion Fruit Sorbet",
+            "price" : "$10",
+            "img" : "../Images/cone11.jpg",
+            "best" : true,
+            "desc" : "Ingredients: Passionfruit, Lemon, Raw Cane Sugar",
+            "desc2" : ""
+        },
+        {
+            "name" : "Chocolate Sorbet",
+            "price" : "$4",
+            "img" : "../Images/cup12.jpg",
+            "desc" : "Ingredients: Cocoa Powder, Cocoa Mass, Raw Cane Sugar",
+            "desc2" : "Death by chocolate... literally. Rich and creamy without any plant milk."
+        },
+        {
+            "name" : "Charcoal Vanilla",
+            "price" : "$8",
+            "img" : "../Images/cup13.jpg",
+            "desc" : "Ingredients: Coconut Milk, Cashew Milk, Vanilla Bean, Activated Japanese Bamboo Charcoal, Raw Cane Sugar",
+            "desc2" : "Experience all of the flavour of our classic vanilla, but with a fun twist. Scoop up gray-black ice cream with the added detoxifying benefits of activated charcoal."
+        },
+        {
+            "name" : "Watermelon & Strawberry",
+            "price" : "$9",
+            "img" : "../Images/cup14.jpg",
+            "desc" : "",
+            "desc2" : ""
+        }
+        ];
+        $scope.sortBy = function(x) {
+            $scope.mySort = x;
+        }
+         });
+    </script>
+
+</html>
